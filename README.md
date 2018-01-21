@@ -1,6 +1,6 @@
 # react-native-postcss-transformer
 
-Use PostCSS to transform CSS to [react native style objects](https://facebook.github.io/react-native/docs/style.html).
+Use [PostCSS](http://postcss.org/) to transform CSS to [react native style objects](https://facebook.github.io/react-native/docs/style.html).
 
 > This transformer can be used together with [React Native CSS modules](https://github.com/kristerkari/react-native-css-modules).
 
