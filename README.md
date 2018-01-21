@@ -75,7 +75,7 @@ Your `App.css` file might look like this (using [postcss-css-variables](https://
 When you import your stylesheet:
 
 ```js
-import styles from "./App.scss";
+import styles from "./App.css";
 ```
 
 Your imported styles will look like this:
