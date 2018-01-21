@@ -11,7 +11,7 @@
   },
   "author": "Krister Kari",
   "license": "MIT",
-  "files": ["index.js", "README.md"],
+  "files": ["CHANGELOG.md", "index.js", "README.md"],
   "dependencies": {
     "css-to-react-native-transform": "^1.0.5",
     "postcss-load-config": "^1.2.0",
