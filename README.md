@@ -99,4 +99,4 @@ You can then use that style object with an element:
 
 ## TODO
 
-* Find a way to make the configuration cleaner by only having to add `rn-cli.config.js` to a project.
+* Find a way to make the configuration cleaner by only having to add `rn-cli.config.js` to a project, https://github.com/kristerkari/react-native-postcss-transformer/issues/1.
