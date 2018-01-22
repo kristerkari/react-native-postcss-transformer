@@ -96,3 +96,7 @@ You can then use that style object with an element:
 ```jsx
 <MyElement style={styles.myClass} />
 ```
+
+## TODO
+
+* Find a way to make the configuration cleaner by only having to add `rn-cli.config.js` to a project.
