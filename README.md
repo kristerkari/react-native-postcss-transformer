@@ -12,7 +12,7 @@ Use [PostCSS](https://github.com/postcss/postcss) to transform CSS to [react nat
 yarn add --dev react-native-postcss-transformer postcss
 ```
 
-### Step 2: Add your PostCSS config
+### Step 2: Add your PostCSS config and install your PostCSS plugins
 
 Add your PostCSS configuration to [one of the supported config formats](https://github.com/michael-ciniawsky/postcss-load-config), e.g. `package.json`, `.postcssrc`, `postcss.config.js`, etc.
 
