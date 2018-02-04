@@ -13,7 +13,7 @@
   "license": "MIT",
   "files": ["CHANGELOG.md", "index.js", "README.md"],
   "dependencies": {
-    "css-to-react-native-transform": "^1.0.6",
+    "css-to-react-native-transform": "^1.0.7",
     "postcss-load-config": "^1.2.0",
     "semver": "^5.5.0"
   },
