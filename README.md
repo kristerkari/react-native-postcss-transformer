@@ -29,7 +29,7 @@ module.exports = {
     return require.resolve("./postcss-transformer.js");
   },
   getSourceExts() {
-    return ["css"]; // <-- Add other extensions if needed.
+    return ["css", "pcss"]; // <-- Add other extensions if needed.
   }
 };
 ```
@@ -47,7 +47,7 @@ var upstreamTransformer = require("metro/src/transformer");
 // var upstreamTransformer = require("metro-bundler/build/transformer");
 
 var postcssTransformer = require("react-native-postcss-transformer");
-var postCSSExtensions = ["css"]; // <-- Add other extensions if needed.
+var postCSSExtensions = ["css", "pcss"]; // <-- Add other extensions if needed.
 
 module.exports.transform = function({ src, filename, options }) {
   if (postCSSExtensions.some(ext => filename.endsWith("." + ext))) {
