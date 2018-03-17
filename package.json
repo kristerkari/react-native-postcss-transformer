@@ -6,6 +6,7 @@
   "repository":
     "https://github.com/kristerkari/react-native-postcss-transformer",
   "scripts": {
+    "release": "npmpub",
     "precommit": "lint-staged",
     "test": "eslint ."
   },
@@ -30,6 +31,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.1",
+    "npmpub": "^3.1.0",
     "prettier": "^1.10.2"
   },
   "lint-staged": {
