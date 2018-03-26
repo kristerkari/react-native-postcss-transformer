@@ -1,10 +1,9 @@
 {
   "name": "react-native-postcss-transformer",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "PostCSS transformer for react-native",
   "main": "index.js",
-  "repository":
-    "https://github.com/kristerkari/react-native-postcss-transformer",
+  "repository": "https://github.com/kristerkari/react-native-postcss-transformer",
   "scripts": {
     "release": "npmpub",
     "precommit": "lint-staged",
@@ -12,7 +11,11 @@
   },
   "author": "Krister Kari",
   "license": "MIT",
-  "files": ["CHANGELOG.md", "index.js", "README.md"],
+  "files": [
+    "CHANGELOG.md",
+    "index.js",
+    "README.md"
+  ],
   "dependencies": {
     "css-to-react-native-transform": "^1.4.0",
     "postcss-load-config": "^1.2.0",
@@ -35,14 +38,26 @@
     "prettier": "^1.10.2"
   },
   "lint-staged": {
-    "*.js": ["prettier --write", "git add"]
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "standard",
     "rules": {
-      "space-before-function-paren": [2, "never"],
-      "semi": [2, "always"],
-      "quotes": [2, "double"]
+      "space-before-function-paren": [
+        2,
+        "never"
+      ],
+      "semi": [
+        2,
+        "always"
+      ],
+      "quotes": [
+        2,
+        "double"
+      ]
     }
   },
   "prettier": {
