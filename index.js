@@ -35,7 +35,7 @@ module.exports.transform = function(src, filename, options) {
     return postcss(config.plugins)
       .process(src, config.options)
       .then(result => {
-        var cssObject = css2rn(result.css);
+        var cssObject = css2rn(result.css, { parseMediaQueries: true });
         return upstreamTransformer.transform({
           src: "module.exports = " + JSON.stringify(cssObject),
           filename,
