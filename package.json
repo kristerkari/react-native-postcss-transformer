@@ -57,7 +57,8 @@
       "quotes": [
         2,
         "double"
-      ]
+      ],
+      "no-else-return": 2
     }
   },
   "prettier": {
