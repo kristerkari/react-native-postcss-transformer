@@ -29,7 +29,7 @@ module.exports = {
     return require.resolve("./postcss-transformer.js");
   },
   getSourceExts() {
-    return ["css", "pcss"]; // <-- Add other extensions if needed.
+    return ["js", "jsx", "css", "pcss"]; // <-- Add other extensions if needed.
   }
 };
 ```
