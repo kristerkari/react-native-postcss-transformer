@@ -34,6 +34,19 @@ module.exports = {
 };
 ```
 
+...or if you are using [Expo](https://expo.io/), in `app.json`:
+
+```json
+{
+  "expo": {
+    "packagerOpts": {
+      "sourceExts": ["js", "jsx", "css", "pcss"],
+      "transformer": "./postcss-transformer.js"
+    }
+  }
+}
+```
+
 Create `postcss-transformer.js` file to your project's root and specify supported extensions:
 
 ```js
