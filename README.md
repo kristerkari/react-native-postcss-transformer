@@ -21,7 +21,30 @@ Add your PostCSS configuration to [one of the supported config formats](https://
 
 ### Step 3: Configure the react native packager
 
-Add this to your `rn-cli.config.js` (make one to your project's root if you don't have one already):
+#### For React Native v0.57 or newer
+
+Add this to `rn-cli.config.js` in your project's root (create the file if it does not exist already):
+
+```js
+const { getDefaultConfig } = require("metro-config");
+module.exports = (async () => {
+  const {
+    resolver: { sourceExts }
+  } = await getDefaultConfig();
+  return {
+    transformer: {
+      babelTransformerPath: require.resolve("./postcss-transformer.js")
+    },
+    resolver: {
+      sourceExts: [...sourceExts, "css", "pcss"]
+    }
+  };
+})();
+```
+
+#### For React Native v0.56 or older
+
+Add this to `rn-cli.config.js` in your project's root (create the file if it does not exist already):
 
 ```js
 module.exports = {
@@ -50,8 +73,11 @@ module.exports = {
 Create `postcss-transformer.js` file to your project's root and specify supported extensions:
 
 ```js
-// For React Native version 0.52 or later
-var upstreamTransformer = require("metro/src/transformer");
+// For React Native version 0.56 or later
+var upstreamTransformer = require("metro/src/reactNativeTransformer");
+
+// For React Native version 0.52-0.55
+// var upstreamTransformer = require("metro/src/transformer");
 
 // For React Native version 0.47-0.51
 // var upstreamTransformer = require("metro-bundler/src/transformer");
@@ -114,4 +140,4 @@ You can then use that style object with an element:
 
 ## TODO
 
-* Find a way to make the configuration cleaner by only having to add `rn-cli.config.js` to a project, https://github.com/kristerkari/react-native-postcss-transformer/issues/1.
+- Find a way to make the configuration cleaner by only having to add `rn-cli.config.js` to a project, https://github.com/kristerkari/react-native-postcss-transformer/issues/1.
