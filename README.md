@@ -70,6 +70,8 @@ module.exports = {
 }
 ```
 
+### Step 4: Add transformer file
+
 Create `postcss-transformer.js` file to your project's root and specify supported extensions:
 
 ```js
