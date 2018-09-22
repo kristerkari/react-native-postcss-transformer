@@ -1,6 +1,7 @@
 # react-native-postcss-transformer
 
 [![NPM version](http://img.shields.io/npm/v/react-native-postcss-transformer.svg)](https://www.npmjs.org/package/react-native-postcss-transformer)
+[![Downloads per month](https://img.shields.io/npm/dm/react-native-postcss-transformer.svg)](http://npmcharts.com/compare/react-native-postcss-transformer)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
 Use [PostCSS](https://github.com/postcss/postcss) to transform CSS to [react native style objects](https://facebook.github.io/react-native/docs/style.html).
