@@ -1,14 +1,74 @@
-# react-native-postcss-transformer
+# react-native-postcss-transformer [![NPM version](http://img.shields.io/npm/v/react-native-postcss-transformer.svg)](https://www.npmjs.org/package/react-native-postcss-transformer) [![Downloads per month](https://img.shields.io/npm/dm/react-native-postcss-transformer.svg)](http://npmcharts.com/compare/react-native-postcss-transformer?periodLength=30) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
-[![NPM version](http://img.shields.io/npm/v/react-native-postcss-transformer.svg)](https://www.npmjs.org/package/react-native-postcss-transformer)
-[![Downloads per month](https://img.shields.io/npm/dm/react-native-postcss-transformer.svg)](http://npmcharts.com/compare/react-native-postcss-transformer?periodLength=30)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
+Use [PostCSS](https://github.com/postcss/postcss) to style your React Native apps.
 
-Use [PostCSS](https://github.com/postcss/postcss) to transform CSS to [react native style objects](https://facebook.github.io/react-native/docs/style.html).
+Behind the scenes the Sass files are transformed to [react native style objects](https://facebook.github.io/react-native/docs/style.html).
 
 > This transformer can be used together with [React Native CSS modules](https://github.com/kristerkari/react-native-css-modules).
 
-## Usage
+## How does it work?
+
+Your `App.css` file might look like this (using [postcss-css-variables](https://github.com/MadLittleMods/postcss-css-variables) plugin):
+
+```css
+:root {
+  --blue-color: blue;
+}
+
+.myClass {
+  color: var(--blue-color);
+}
+.myOtherClass {
+  color: red;
+}
+.my-dashed-class {
+  color: green;
+}
+```
+
+When you import your stylesheet:
+
+```js
+import styles from "./App.css";
+```
+
+Your imported styles will look like this:
+
+```js
+var styles = {
+  myClass: {
+    color: "blue"
+  },
+  myOtherClass: {
+    color: "red"
+  },
+  "my-dashed-class": {
+    color: "green"
+  }
+};
+```
+
+You can then use that style object with an element:
+
+**Plain React Native:**
+
+```jsx
+<MyElement style={styles.myClass} />
+```
+
+**React Native CSS modules using [className](https://github.com/kristerkari/babel-plugin-react-native-classname-to-style) property:**
+
+```jsx
+<MyElement className={styles.myClass} />
+```
+
+**React Native CSS modules using [styleName](https://github.com/kristerkari/babel-plugin-react-native-stylename-to-style) property:**
+
+```jsx
+<MyElement styleName="myClass my-dashed-class" />
+```
+
+## Installation and configuration
 
 ### Step 1: Install
 
@@ -28,6 +88,7 @@ Add this to `rn-cli.config.js` in your project's root (create the file if it doe
 
 ```js
 const { getDefaultConfig } = require("metro-config");
+
 module.exports = (async () => {
   const {
     resolver: { sourceExts }
@@ -42,6 +103,8 @@ module.exports = (async () => {
   };
 })();
 ```
+
+---
 
 #### For React Native v0.56 or older
 
@@ -99,47 +162,13 @@ module.exports.transform = function({ src, filename, options }) {
 };
 ```
 
-## How does it work?
+## Dependencies
 
-Your `App.css` file might look like this (using [postcss-css-variables](https://github.com/MadLittleMods/postcss-css-variables) plugin):
+This library has the following Node.js modules as dependencies:
 
-```css
-:root {
-  --blue-color: blue;
-}
-
-.myClass {
-  color: var(--blue-color);
-}
-.myOtherClass {
-  color: red;
-}
-```
-
-When you import your stylesheet:
-
-```js
-import styles from "./App.css";
-```
-
-Your imported styles will look like this:
-
-```js
-var styles = {
-  myClass: {
-    color: "blue"
-  },
-  myOtherClass: {
-    color: "red"
-  }
-};
-```
-
-You can then use that style object with an element:
-
-```jsx
-<MyElement style={styles.myClass} />
-```
+- [css-to-react-native-transform](https://github.com/kristerkari/css-to-react-native-transform)
+- [postcss-load-config](https://github.com/michael-ciniawsky/postcss-load-config)
+- [semver](https://github.com/npm/node-semver#readme)
 
 ## TODO
 
