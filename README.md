@@ -88,7 +88,7 @@ Add your PostCSS configuration to [one of the supported config formats](https://
 
 #### For React Native v0.57 or newer / Expo SDK v31.0.0 or newer
 
-Add this to `rn-cli.config.js` in your project's root (create the file if it does not exist already):
+Add this to `metro.config.js` in your project's root (create the file if it does not exist already):
 
 ```js
 const { getDefaultConfig } = require("metro-config");
@@ -114,7 +114,7 @@ If you are using [Expo](https://expo.io/), you also need to add this to `app.jso
 {
   "expo": {
     "packagerOpts": {
-      "config": "rn-cli.config.js"
+      "config": "metro.config.js"
     }
   }
 }
@@ -137,7 +137,9 @@ module.exports = {
 };
 ```
 
-#### Expo SDK v30.0.0 or older
+---
+
+#### For Expo SDK v30.0.0 or older
 
 If you are using [Expo](https://expo.io/), instead of adding the `rn-cli.config.js` file, you need to add this to `app.json`:
 
@@ -157,8 +159,11 @@ If you are using [Expo](https://expo.io/), instead of adding the `rn-cli.config.
 Create `postcss-transformer.js` file to your project's root and specify supported extensions:
 
 ```js
-// For React Native version 0.56 or later
-var upstreamTransformer = require("metro/src/reactNativeTransformer");
+// For React Native version 0.59 or later
+var upstreamTransformer = require("metro-react-native-babel-transformer");
+
+// For React Native version 0.56-0.58
+// var upstreamTransformer = require("metro/src/reactNativeTransformer");
 
 // For React Native version 0.52-0.55
 // var upstreamTransformer = require("metro/src/transformer");
@@ -190,4 +195,4 @@ This library has the following Node.js modules as dependencies:
 
 ## TODO
 
-- Find a way to make the configuration cleaner by only having to add `rn-cli.config.js` to a project, https://github.com/kristerkari/react-native-postcss-transformer/issues/1.
+- Find a way to make the configuration cleaner by only having to add `metro.config.js` to a project, https://github.com/kristerkari/react-native-postcss-transformer/issues/1.
