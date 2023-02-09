@@ -19,7 +19,7 @@
   "dependencies": {
     "css-to-react-native-transform": "^2.0.0",
     "postcss-load-config": "^2.0.0",
-    "semver": "^5.6.0"
+    "semver": "^7.3.8"
   },
   "peerDependencies": {
     "postcss": ">=6.0.0",
