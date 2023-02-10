@@ -1,4 +1,4 @@
-var semver = require('semver/functions/minor');
+var semver = require("semver/functions/minor");
 var css2rn = require("css-to-react-native-transform").default;
 var postcss = require("postcss");
 var postcssrc = require("postcss-load-config");
