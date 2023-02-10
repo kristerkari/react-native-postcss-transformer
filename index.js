@@ -1,4 +1,4 @@
-var semver = require("semver");
+var semver = require('semver/functions/minor');
 var css2rn = require("css-to-react-native-transform").default;
 var postcss = require("postcss");
 var postcssrc = require("postcss-load-config");
@@ -6,7 +6,7 @@ var postcssrc = require("postcss-load-config");
 var upstreamTransformer = null;
 
 var reactNativeVersionString = require("react-native/package.json").version;
-var reactNativeMinorVersion = semver(reactNativeVersionString).minor;
+var reactNativeMinorVersion = semver(reactNativeVersionString);
 
 if (reactNativeMinorVersion >= 59) {
   upstreamTransformer = require("metro-react-native-babel-transformer");
