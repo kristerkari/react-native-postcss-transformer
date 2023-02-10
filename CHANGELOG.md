@@ -1,3 +1,8 @@
+## v1.3.0
+
+- Updated: `semver` dependency to v7.3.8.
+- Updated: `css-to-react-native-transform` dependency to v2.0.0.
+
 ## v1.2.4
 
 - Updated: `semver` dependency to v5.6.0.
