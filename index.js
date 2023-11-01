@@ -34,7 +34,7 @@ module.exports.transform = function(src, filename, options) {
     ({ src, filename, options } = src);
   }
 
-  var ctx = { parser: false, map: "inline" };
+  var ctx = { parser: false, map: "inline", from: undefined };
   return postcssrc(ctx).then(config => {
     return postcss(config.plugins)
       .process(src, config.options)
