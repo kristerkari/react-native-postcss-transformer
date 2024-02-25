@@ -8,7 +8,9 @@ var upstreamTransformer = null;
 var reactNativeVersionString = require("react-native/package.json").version;
 var reactNativeMinorVersion = semver(reactNativeVersionString);
 
-if (reactNativeMinorVersion >= 59) {
+if (reactNativeMinorVersion >= 73) {
+  upstreamTransformer = require("@react-native/metro-babel-transformer");
+} else if (reactNativeMinorVersion >= 59) {
   upstreamTransformer = require("metro-react-native-babel-transformer");
 } else if (reactNativeMinorVersion >= 56) {
   upstreamTransformer = require("metro/src/reactNativeTransformer");
@@ -28,17 +30,17 @@ if (reactNativeMinorVersion >= 59) {
   };
 }
 
-module.exports.transform = function(src, filename, options) {
+module.exports.transform = function (src, filename, options) {
   if (typeof src === "object") {
     // handle RN >= 0.46
     ({ src, filename, options } = src);
   }
 
   var ctx = { parser: false, map: "inline", from: undefined };
-  return postcssrc(ctx).then(config => {
+  return postcssrc(ctx).then((config) => {
     return postcss(config.plugins)
       .process(src, config.options)
-      .then(result => {
+      .then((result) => {
         var cssObject = css2rn(result.css, { parseMediaQueries: true });
         return upstreamTransformer.transform({
           src: "module.exports = " + JSON.stringify(cssObject),

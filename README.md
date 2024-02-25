@@ -160,8 +160,11 @@ If you are using [Expo](https://expo.io/), instead of adding the `rn-cli.config.
 Create `postcss-transformer.js` file to your project's root and specify supported extensions:
 
 ```js
+// For React Native version 0.73 or later
+var upstreamTransformer = require("@react-native/metro-babel-transformer");
+
 // For React Native version 0.59 or later
-var upstreamTransformer = require("metro-react-native-babel-transformer");
+// var upstreamTransformer = require("metro-react-native-babel-transformer");
 
 // For React Native version 0.56-0.58
 // var upstreamTransformer = require("metro/src/reactNativeTransformer");
@@ -178,8 +181,8 @@ var upstreamTransformer = require("metro-react-native-babel-transformer");
 var postcssTransformer = require("react-native-postcss-transformer");
 var postCSSExtensions = ["css", "pcss"]; // <-- Add other extensions if needed.
 
-module.exports.transform = function({ src, filename, options }) {
-  if (postCSSExtensions.some(ext => filename.endsWith("." + ext))) {
+module.exports.transform = function ({ src, filename, options }) {
+  if (postCSSExtensions.some((ext) => filename.endsWith("." + ext))) {
     return postcssTransformer.transform({ src, filename, options });
   }
   return upstreamTransformer.transform({ src, filename, options });
