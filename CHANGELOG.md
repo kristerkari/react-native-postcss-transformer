@@ -1,3 +1,9 @@
+## v2.0.0
+
+- Breaking: drop support for `react-native` versions older than 0.59
+- Removed: `semver` dependency.
+- Added: support for `Expo SDK` v50.
+
 ## v1.4.0
 
 - Added: support for react-native v0.73
