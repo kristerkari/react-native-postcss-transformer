@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "css-to-react-native-transform": "^2.0.0",
-    "postcss-load-config": "^5.1.0"
+    "postcss-load-config": "^6.0.1"
   },
   "peerDependencies": {
     "postcss": ">=6.0.0",
